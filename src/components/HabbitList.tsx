@@ -43,7 +43,7 @@ function HabbitItem({ habit }: HabitItemProps) {
           <span className="font-medium">{habit.name}</span>
           <span className="text-sm text-amber-400">🎈 3</span>
         </div>
-        <Button>Delete</Button>
+        <Button variant="ghost-destructive">Delete</Button>
       </div>
       <div className="flex gap-1 5">
         {visibleDates.map((date) => (

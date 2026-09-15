@@ -1,18 +1,16 @@
 import type { ComponentProps } from "react";
 
-type Variant = {
-  varient?: "primary" | "secondary" | "ghost-desctructive";
-};
+type Variant = "primary" | "secondary" | "ghost-destructive";
 
 type ButtonProps = {
-  varient?: Variant;
+  variant?: Variant;
 } & ComponentProps<"button">;
 
 export function Button({ variant = "primary", ...props }: ButtonProps) {
   return (
     <button
       {...props}
-      className={`${getVariantStyles(variant)} bg-violet-600 hover:bg-violet-500 transition-colors rounded px-2 py-1 disabled:opacity-30 disabled:cursor-not-allowed text-lg`}
+      className={`${getVariantStyles(variant)} transition-colors rounded px-2 py-1 disabled:opacity-30 disabled:cursor-not-allowed text-lg`}
     />
   );
 }
@@ -23,7 +21,7 @@ function getVariantStyles(variant: Variant) {
       return "bg-violet-600 hover:bg-violet-500";
     case "secondary":
       return "bg-zinc-700 hover:bg-zinc-600 text-zinc-400";
-    case "gost-destructive":
+    case "ghost-destructive":
       return "hover:bg-red-800 text-red-800 hover:text-red-200";
     default:
       throw new Error(`Invalid variant: ${variant satisfies never}`);
